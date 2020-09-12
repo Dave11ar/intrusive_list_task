@@ -1,0 +1,6 @@
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles/intrusive_list_testing.dir
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest/CMakeFiles/rebuild_cache.dir
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest/CMakeFiles/gtest.dir
+/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest/CMakeFiles/edit_cache.dir
