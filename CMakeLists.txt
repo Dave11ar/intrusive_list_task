@@ -13,3 +13,5 @@ add_executable(intrusive_list_testing
 set_property(TARGET intrusive_list_testing PROPERTY CXX_STANDARD 17)
 
 target_link_libraries(intrusive_list_testing gtest)
+
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -fsanitize=undefined,address,leak -fno-sanitize-recover=all -D_GLIBCXX_DEBUG")

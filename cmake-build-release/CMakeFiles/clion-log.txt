@@ -1,0 +1,4 @@
+/home/dave11ar/Soft/clion-2019.2.5/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=/usr/bin/clang -DCMAKE_CXX_COMPILER=/usr/bin/clang++ -G "CodeBlocks - Unix Makefiles" /home/dave11ar/Projects/intrusive_list_task
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/dave11ar/Projects/intrusive_list_task/cmake-build-release
