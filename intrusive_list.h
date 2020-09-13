@@ -17,10 +17,6 @@ struct list_element {
   list_element* next;
   list_element* prev;
 
-  ~list_element() {
-    //unlink();
-  }
-
   /* Отвязывает элемент из списка в котором он находится. */
   void unlink() {
     next->prev = prev;
@@ -45,8 +41,7 @@ struct list {
 
     template <typename P>
     list_iterator(list_iterator<P> other,
-        std::enable_if_t<std::is_same_v<std::remove_const_t<E>, std::remove_const_t<P>> &&
-              (std::is_same_v<E, P> || std::is_const_v<E>)>* = nullptr) {
+        std::enable_if_t<std::is_same_v<E, P> || std::is_const_v<E>>* = nullptr) {
       current = other.current;
     }
 
@@ -82,14 +77,13 @@ struct list {
       return !(*this == rhs);
     }
 
-   // lul private:
+   private:
     /*
     Это важно иметь этот конструктор private, чтобы итератор нельзя было создать
     от nullptr.
     */
     explicit list_iterator(list_element<Tag>* cur) noexcept : current(cur){}
-
-   //lul private:
+    friend list;
     /*
     Хранить list_element*, а не T* важно.
     Иначе нельзя будет создать list_iterator для
@@ -98,7 +92,6 @@ struct list {
     list_element<Tag>* current;
   };
 
-
   using iterator = list_iterator<T>;
   using const_iterator = list_iterator<const T>;
 
@@ -106,15 +99,11 @@ struct list {
                 "value type is not convertible to list_element");
 
   list() noexcept {
-    fake_node = new list_element<Tag>();
-    fake_node->next = fake_node;
-    fake_node->prev = fake_node;
+    ring();
   }
   list(list const &) = delete;
   list(list&& cur_list) noexcept : fake_node(cur_list.fake_node) {
-    cur_list.fake_node = new list_element<Tag>();
-    cur_list.fake_node->next = cur_list.fake_node;
-    cur_list.fake_node->prev = cur_list.fake_node;
+    cur_list.ring();
   }
 
   ~list() {
@@ -125,17 +114,12 @@ struct list {
   list &operator=(list const &) = delete;
   list &operator=(list&& cur_list) noexcept {
     delete fake_node;
-
     fake_node = cur_list.fake_node;
-    cur_list.fake_node = new list_element<Tag>();
-    cur_list.fake_node->next = cur_list.fake_node;
-    cur_list.fake_node->prev = cur_list.fake_node;
-
+    cur_list.ring();
     return *this;
   }
 
   void clear() noexcept {
-    //gline
     list_element<Tag>* node = fake_node->next;
 
     while (node != fake_node) {
@@ -150,10 +134,10 @@ struct list {
   мы принимаем неконстантный T&.
   */
   void push_back(T& node) noexcept {
-    fake_node->prev->next = &node;
-    static_cast<list_element<Tag>*>(&node)->prev = fake_node->prev;
-    static_cast<list_element<Tag>*>(&node)->next = fake_node;
-    fake_node->prev = &node;
+    fake_node->prev->next = get_list(node);
+    get_list(node)->prev = fake_node->prev;
+    get_list(node)->next = fake_node;
+    fake_node->prev = get_list(node);
   }
 
   void pop_back() noexcept {
@@ -167,10 +151,10 @@ struct list {
   }
 
   void push_front(T& node) noexcept {
-    fake_node->next->prev = &node;
-    static_cast<list_element<Tag>*>(&node)->next = fake_node->next;
-    static_cast<list_element<Tag>*>(&node)->prev = fake_node;
-    fake_node->next = &node;
+    fake_node->next->prev = get_list(node);
+    get_list(node)->next = fake_node->next;
+    get_list(node)->prev = fake_node;
+    fake_node->next = get_list(node);
 
   }
   void pop_front() noexcept {
@@ -202,25 +186,31 @@ struct list {
     return const_iterator(fake_node);
   }
 
-  iterator insert(/*const_*/iterator pos, T& node) noexcept {
-    pos->prev->next = static_cast<list_element<Tag>*>(&node);
-    static_cast<list_element<Tag>*>(&node)->next = &(*pos);
-    static_cast<list_element<Tag>*>(&node)->prev= pos->prev;
-    pos->prev = static_cast<list_element<Tag>*>(&node);
-    return iterator(&node);
+  iterator insert(const_iterator pos, T& node) noexcept {
+    iterator pos_non_const = non_const_transform(pos);
+
+    pos_non_const->prev->next = get_list(node);
+    get_list(node)->next = &*pos_non_const;
+    get_list(node)->prev= pos_non_const->prev;
+    pos_non_const->prev = get_list(node);
+    return iterator(get_list(node));
   }
-  iterator erase(/*const_*/iterator pos) noexcept {
-    iterator cur = ++pos;
-    pos->prev->unlink();
+
+  iterator erase(const_iterator pos) noexcept {
+    iterator pos_non_const = non_const_transform(pos);
+
+    iterator cur = ++pos_non_const;
+    pos_non_const->prev->unlink();
     return cur;
   }
+
   void splice(const_iterator pos, list& l, const_iterator first, const_iterator last) noexcept {
+    if (first == last) {
+      return;
+    }
     iterator pos_non_const = non_const_transform(pos);
     iterator first_non_const = non_const_transform(first);
     iterator last_non_const = non_const_transform(last);
-
-    if (first == last)
-      return;
 
     pos_non_const->prev->next = &(*first_non_const);
 
@@ -238,6 +228,15 @@ struct list {
     return iterator(cur->prev->next);
   }
 
+  void ring() {
+    fake_node = new list_element<Tag>();
+    fake_node->next = fake_node;
+    fake_node->prev = fake_node;
+  }
+
+  static list_element<Tag>* get_list(T& node) {
+    return static_cast<list_element<Tag>*>(&node);
+  }
 
   list_element<Tag>* fake_node;
 };
