@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc" "/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest/CMakeFiles/gtest.dir/gtest-all.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

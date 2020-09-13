@@ -60,15 +60,15 @@ include gtest/CMakeFiles/gtest.dir/flags.make
 gtest/CMakeFiles/gtest.dir/gtest-all.cc.o: gtest/CMakeFiles/gtest.dir/flags.make
 gtest/CMakeFiles/gtest.dir/gtest-all.cc.o: ../gtest/gtest-all.cc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object gtest/CMakeFiles/gtest.dir/gtest-all.cc.o"
-	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest.dir/gtest-all.cc.o -c /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc
+	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gtest.dir/gtest-all.cc.o -c /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc
 
 gtest/CMakeFiles/gtest.dir/gtest-all.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gtest.dir/gtest-all.cc.i"
-	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc > CMakeFiles/gtest.dir/gtest-all.cc.i
+	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc > CMakeFiles/gtest.dir/gtest-all.cc.i
 
 gtest/CMakeFiles/gtest.dir/gtest-all.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gtest.dir/gtest-all.cc.s"
-	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc -o CMakeFiles/gtest.dir/gtest-all.cc.s
+	cd /home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/gtest && /usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/gtest/gtest-all.cc -o CMakeFiles/gtest.dir/gtest-all.cc.s
 
 # Object files for target gtest
 gtest_OBJECTS = \

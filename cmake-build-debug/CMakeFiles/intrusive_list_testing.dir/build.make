@@ -60,28 +60,28 @@ include CMakeFiles/intrusive_list_testing.dir/flags.make
 CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.o: CMakeFiles/intrusive_list_testing.dir/flags.make
 CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.o: ../intrusive_list.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.o -c /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.o -c /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp
 
 CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp > CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp > CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.i
 
 CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp -o CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/intrusive_list.cpp -o CMakeFiles/intrusive_list_testing.dir/intrusive_list.cpp.s
 
 CMakeFiles/intrusive_list_testing.dir/main.cpp.o: CMakeFiles/intrusive_list_testing.dir/flags.make
 CMakeFiles/intrusive_list_testing.dir/main.cpp.o: ../main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dave11ar/Projects/intrusive_list_task/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/intrusive_list_testing.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/intrusive_list_testing.dir/main.cpp.o -c /home/dave11ar/Projects/intrusive_list_task/main.cpp
+	/usr/bin/clang++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/intrusive_list_testing.dir/main.cpp.o -c /home/dave11ar/Projects/intrusive_list_task/main.cpp
 
 CMakeFiles/intrusive_list_testing.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/intrusive_list_testing.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/main.cpp > CMakeFiles/intrusive_list_testing.dir/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dave11ar/Projects/intrusive_list_task/main.cpp > CMakeFiles/intrusive_list_testing.dir/main.cpp.i
 
 CMakeFiles/intrusive_list_testing.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/intrusive_list_testing.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/main.cpp -o CMakeFiles/intrusive_list_testing.dir/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dave11ar/Projects/intrusive_list_task/main.cpp -o CMakeFiles/intrusive_list_testing.dir/main.cpp.s
 
 # Object files for target intrusive_list_testing
 intrusive_list_testing_OBJECTS = \
